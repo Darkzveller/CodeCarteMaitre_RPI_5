@@ -7,10 +7,10 @@ team = None
 flag_done = False
 new_waypoint = None
 received_info = False
-waypoints = None
-main_loop = True
+waypoints = []
 half_robot_lenght = 139
 robot_angle = None
+client = None
 
 waypoint_lines = [
         [( (125+900)//2, y) for y in range((900+300)//2, (1000+1550)//2 +1)],
@@ -53,6 +53,36 @@ depot_points_front_back = [
                 (90+300,(650+1100)//2)
                 ]
 
+swomp_points = [
+            (125 + half_robot_lenght, (200+600)//2),
+            ((575+975)//2 , 300 + half_robot_lenght),
+            ((2025+2425)//2, 300 + half_robot_lenght),
+            (2875 - half_robot_lenght, (200+600)//2),
+            ((625+1025)//2, 1675 - half_robot_lenght),
+            ((1975+2375)//2, 1675 - half_robot_lenght),
+            (2875 - half_robot_lenght, (1125+1525)//2),
+            (125 + half_robot_lenght, (1125+1525)//2),
+            ((900+1300)//2, 900 - half_robot_lenght),
+            ((900+1300)//2, 1000 + half_robot_lenght),
+            ((1700+2100)//2, 900 - half_robot_lenght),
+            ((1700+2100)//2, 1000 + half_robot_lenght)
+        ]
+
+swomp_points_front_back = [
+            (125, (200+600)//2),
+            ((575+975)//2 , 300),
+            ((2025+2425)//2, 300),
+            (2875, (200+600)//2),
+            ((625+1025)//2, 1675),
+            ((1975+2375)//2, 1675),
+            (2875, (1125+1525)//2),
+            (125, (1125+1525)//2),
+            ((900+1300)//2, 900),
+            ((900+1300)//2, 1000),
+            ((1700+2100)//2, 900),
+            ((1700+2100)//2, 1000)
+        ]
+
 ip_dico = {
     "Matthieu" : "172.20.10.4",
     "rpi5" : None,                                                      
@@ -72,11 +102,11 @@ conn_dico = {
 
 front = {
     "build_state" : False,
-    "position" : None
+    "full" : False
 }
 back = {
     "build_state" : False,
-    "position" : None
+    "full" : False
 } 
 
 message_lock = threading.Lock()
