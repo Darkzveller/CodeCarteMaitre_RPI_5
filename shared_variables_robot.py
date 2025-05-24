@@ -1,8 +1,8 @@
 import threading
 import queue
 
-our_plan_mid = None
-ennemi_plan_mid = None
+our_plan_mid = (None, None)
+ennemi_plan_mid = (None, None)
 team = None
 flag_done = False
 new_waypoint = None
@@ -15,6 +15,7 @@ state_interrupteur_1 = 0
 state_interrupteur_2 = 0
 state_interrupteur_3 = 0
 zone = None
+pts = 0
 
 waypoint_lines = [
         [( (125+900)//2, y) for y in range((900+300)//2, (1000+1550)//2 +1)],
